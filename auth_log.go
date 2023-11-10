@@ -10,24 +10,10 @@ const (
 	AUTH_LOG_VALID_LINE_2 = "%s %s %s[%d] pam_unix(sshd:session): session opened for user %s[uid=%d] by (uid=0)\n"
 )
 
-// auth_log is a sample struct for auth.log in linux
-type auth_log struct {
-	// Log time stamp: Nov 10 01:44:15
-	Date time.Time `json:"date" xml:"date"`
-
-	// Linux Hostname, will use comma-delimited hostnames in godummylogs.conf
-	ServerName string `json:"host" xml:"host"`
-
-	// Process Name
-	// to simplified it, currently we will use sshd[random process id]
-	Process string `json:"process" xml:"process"`
-
-	// User name
-	Username string `json:"username" xml:"username"`
-
-	// IP address
-	IP string `json:"ip" xml:"ip"`
-
-	//
-
+// AuthLog is a sample struct for auth.log in linux
+type AuthLogConf struct {
+	File                      string        `json:"file"`
+	KnownUsersSuccessInterval time.Duration `json:"knownUsers_success_interval"`
+	KnownUsersFaieldInterval  time.Duration `json:"knownUsers_failed_interval"`
+	OtherFailed               time.Duration `json:"other_failed"`
 }

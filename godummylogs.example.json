@@ -1,0 +1,42 @@
+{
+    "hostnames": [
+        "www1", 
+        "www2", 
+        "www3",
+        "mail1",
+        "mail2",
+        "mail3",
+        "ad1", 
+        "ad2", 
+        "ad3", 
+        "ad4"
+    ],
+    "knownUsers": [
+        {
+            "username": "javad",
+            "userID": 1001,
+            "fullname": "Javad Mohebi",
+            "email": "javad@example.com"
+        }, 
+        {
+            "username": "root",
+            "userID": 1,
+            "fullname": "root",
+            "email": "root@example.local"
+        },
+        {
+            "username": "john",
+            "userID": 1002,
+            "fullname": "John Smith",
+            "email": "john@example.edu"
+        }
+    ],
+    "context_path": "/Users/javad/Projects/go-dummy-logs/generated",
+    "auth": {
+        "file": "auth.log",
+        "knownUsers_success_interval": "15m",
+        "knownUsers_failed_interval": "3h",
+        "other_failed": "10m"
+    }
+
+}
