@@ -19,7 +19,7 @@ type Config struct {
 
 	ContextPath string `json:"context_path"`
 
-	Auth AuthLogConf `json:"auth"`
+	Auth ConfAuthLog `json:"auth"`
 }
 
 // Read .json configuration file and parse it
