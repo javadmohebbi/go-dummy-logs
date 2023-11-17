@@ -74,7 +74,7 @@ func (a AuthLog) generate_known_success() {
 			}
 
 			_users := Users{}
-			if len(a.conf.KnownUsers) <= 0 {
+			if len(a.conf.Known.Users) <= 0 {
 				_users = Users{
 					Username: "root",
 					UserID:   1,
@@ -82,11 +82,11 @@ func (a AuthLog) generate_known_success() {
 					Email:    "root@example.local",
 				}
 			} else {
-				_users = a.conf.KnownUsers[(rand.Intn(len(a.conf.KnownUsers) - 1))]
+				_users = a.conf.Known.Users[(rand.Intn(len(a.conf.Known.Users) - 1))]
 			}
 
 			_pid := rand.Intn(100000-10000) + 10000
-			_s_port := rand.Intn(600000-500000) + 500000
+			_s_port := rand.Intn(60000-50000) + 50000
 
 			line := fmt.Sprintf("%s %s %s[%d] Accepted password for %s from %s port %d ssh2\n",
 				time.Now().Format("Jan 02 15:04:05"), _host, "sshd", _pid, _users.Username,

@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	godummylogs "github.com/javadmohebbi/go-dummy-logs"
 )
 
@@ -11,6 +9,8 @@ var conf_file = "/Users/javad/Projects/go-dummy-logs/godummylogs.example.json"
 
 func main() {
 	dummy := godummylogs.New(conf_file)
-	fmt.Println(dummy.Config)
+	// c := dummy.Config
+	// j, _ := json.MarshalIndent(c, "", " ")
+	// fmt.Println(string(j))
 	dummy.Generate()
 }

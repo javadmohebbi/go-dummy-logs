@@ -11,27 +11,44 @@
         "ad3", 
         "ad4"
     ],
-    "knownUsers": [
+    "known": {
+        "users": [
+            {
+                "username": "javad",
+                "userID": 1001,
+                "fullname": "Javad Mohebi",
+                "email": "javad@example.com"
+            }, 
+            {
+                "username": "root",
+                "userID": 1,
+                "fullname": "root",
+                "email": "root@example.local"
+            },
+            {
+                "username": "john",
+                "userID": 1002,
+                "fullname": "John Smith",
+                "email": "john@example.edu"
+            }
+        ]
+    },
+    "context_path": "/Users/javad/Projects/go-dummy-logs/generated",
+    "generate": [
         {
-            "username": "javad",
-            "userID": 1001,
-            "fullname": "Javad Mohebi",
-            "email": "javad@example.com"
-        }, 
-        {
-            "username": "root",
-            "userID": 1,
-            "fullname": "root",
-            "email": "root@example.local"
-        },
-        {
-            "username": "john",
-            "userID": 1002,
-            "fullname": "John Smith",
-            "email": "john@example.edu"
+            "nickName" : "Linux Auth Log",
+            "fileName": "auth.log",
+            "templates": [
+                {
+                    "interval": "1s",
+                    "logLines": [
+                        "%%DATE%% %%HOSTNAME%% sshd[%%RND_1000_10000%%] Accepted password for %%KNOWN_USERNAME%% from %%GEN_IP%% port %%RND_50000_60000%% sshd\n",
+                        "%%DATE%% %%HOSTNAME%% sshd[%%RND_1000_10000%%] pam_unix(sshd:session) session opened for user %%KNOWN_USERNAME%%[uid=%%KNOWN_UID%%] by (uid=0)\n"
+                    ]
+                }
+            ]
         }
     ],
-    "context_path": "/Users/javad/Projects/go-dummy-logs/generated",
     "auth": {
         "file": "auth.log",
         "knownUsers_success_interval": "1s",
